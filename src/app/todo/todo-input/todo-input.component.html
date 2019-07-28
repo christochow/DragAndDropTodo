@@ -1,0 +1,8 @@
+<div class="form-group row" style="margin-top: 100px;text-align: center;margin-left: 150px;">
+  <form #todoForm="ngForm">
+  <div class="col-xs-9 form-group">
+    <input class="form-control" name="todo" placeholder="Enter new TODO" style="height: 50px" id="ex3" type="text" ngModel>
+  </div>
+  <button (click)="todoService.addTodo(todoForm.value.todo)" type="submit" class="btn btn-success" style="width: 100px;margin: 0"><h4>Add</h4></button>
+  </form>
+</div>
