@@ -1,7 +1,10 @@
 <div class="container" style="align-items: center">
-  <div *ngFor="let todo of todoService.getTodo()">
-  <div style="width:900px;margin-top:10px;background: azure;display: inline-block">
-    <h4>{{todo}}</h4>
+  <div *ngFor="let todo of todoService.getTodo();let i = index">
+  <div style="width: 700px;padding-right:5px;margin-top:10px;background: azure;display: inline-block" class="row">
+    <div class="col-xs-5">
+    <h4>{{todo.todo}}</h4>
+    </div>
+    <button (click)="todoService.removeItem(i)" class="btn btn-success pull-right" style="margin-top: 2px;">Remove</button>
   </div>
   </div>
 </div>

@@ -1,27 +1,38 @@
 import { Injectable } from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
+import {Todo} from '../models/todo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  list: string[];
+  list: Todo[];
   constructor(public cookieService: CookieService) {
     this.list = [];
   }
 
-  setTodo(val: string[]) {
+  setTodo(val: Todo[]) {
     this.list = val;
   }
 
   addTodo(item: string): void {
-    if(item !== ''){
-      this.list.push(item);
+    if (item !== '') {
+      this.list.push(new Todo(item));
+      this.saveList();
     }
+  }
+
+  getTodo(): Todo[] {
+    return this.list;
+  }
+
+  removeItem(index) {
+    this.list.splice(index, 1);
+    this.saveList();
+  }
+
+  private saveList(){
     this.cookieService.set('todoList', JSON.stringify(this.list));
   }
 
-  getTodo(): string[] {
-    return this.list;
-  }
 }
