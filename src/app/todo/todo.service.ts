@@ -31,6 +31,10 @@ export class TodoService {
     this.saveList();
   }
 
+  updateList(oldIndex, newIndex){
+    this.list.splice(newIndex, 0, this.list.splice(oldIndex, 1)[0]);
+  }
+
   private saveList(){
     this.cookieService.set('todoList', JSON.stringify(this.list));
   }

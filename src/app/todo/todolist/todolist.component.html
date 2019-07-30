@@ -1,10 +1,12 @@
-<div class="container" style="align-items: center">
-  <div *ngFor="let todo of todoService.getTodo();let i = index">
-  <div style="width: 700px;padding-right:5px;margin-top:10px;background: azure;display: inline-block" class="row">
-    <div class="col-xs-5">
-    <h4>{{todo.todo}}</h4>
+<div cdkDropList class="container todo-list" (cdkDropListDropped)="dropEvent($event)">
+  <div *ngFor="let todo of todoService.getTodo();let i = index" cdkDrag>
+  <div class="todo-box">
+    <div class="todo-detail">
+    {{i+1}}. {{todo.todo}}
     </div>
-    <button (click)="todoService.removeItem(i)" class="btn btn-success pull-right" style="margin-top: 2px;">Remove</button>
+    <div>
+    <button (click)="todoService.removeItem(i)" class="btn btn-success remove-button">Remove</button>
+    </div>
   </div>
-  </div>
+</div>
 </div>

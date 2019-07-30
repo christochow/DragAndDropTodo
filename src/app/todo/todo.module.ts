@@ -4,6 +4,7 @@ import { TodoComponent } from './todo.component';
 import {TodolistComponent} from './todolist/todolist.component';
 import {TodoInputComponent} from './todo-input/todo-input.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 
@@ -13,7 +14,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ]
 })
 export class TodoModule { }
