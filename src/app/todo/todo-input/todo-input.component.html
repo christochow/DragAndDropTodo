@@ -1,8 +1,8 @@
 <div class="form-group row">
-  <form #todoForm="ngForm">
+  <form [formGroup]="todoForm" (ngSubmit)="todoService.addTodo(todoForm.value.input);todoForm.get('input').setValue('')">
   <div class="col-xs-9 form-group">
-    <input class="form-control todo-input" name="todo" placeholder="Enter new TODO" type="text" id="ex3" ngModel>
+    <input class="form-control todo-input" placeholder="Enter new TODO" type="text" formControlName="input">
   </div>
-  <button (click)="todoService.addTodo(todoForm.value.todo);todoForm.resetForm()" type="submit" class="btn btn-success add-todo">Add</button>
+  <button type="submit" [disabled]="!todoForm.valid" class="btn btn-success add-todo">Add</button>
   </form>
 </div>
