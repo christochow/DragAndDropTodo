@@ -5,6 +5,9 @@ import {TodolistComponent} from './todolist/todolist.component';
 import {TodoInputComponent} from './todo-input/todo-input.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CookieLawModule} from 'angular2-cookie-law';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -15,7 +18,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    BrowserAnimationsModule,
+    CookieLawModule,
+    RouterModule
   ]
 })
 export class TodoModule { }
